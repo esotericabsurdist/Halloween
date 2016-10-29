@@ -1,16 +1,28 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
+var express = require('express'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    mongodb = require('mongodb'),
+    mongoose = require('mongoose'),
+    app = express();
 //==============================================================================
-/* TODO -> Connect to DB */
-var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+// Support JSON-encoded bodies
+app.use(bodyParser.json());
+// Support URL-encoded bodies
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-//==============================================================================
-
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/assignment4');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("Connected to Database");
+});
 
 var store = require('./routes/store');
 //==============================================================================
