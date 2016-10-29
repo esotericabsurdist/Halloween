@@ -5,7 +5,6 @@ var costumeSchema = new Schema({
   imagePath: String,
   title:  String,
   description: String,
-  userID: Number,
   userName: String,
   likes: Number,
   dislikes: Number,
