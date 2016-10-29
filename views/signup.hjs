@@ -1,26 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-  </head>
-  <body>
-
-    <p> "here is where you sign up" </p>
-
-  </body>
-
-
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
-  <script src='javascripts/jquery.js'> </script>
-  <script type="text/javascript" src="/javascripts/signup.js"> </script>
-
-</html>
-
-
-<!DOCTYPE html>
-<html>
     <head>
-        <title>Halloween project</title>
+        <title>{{title}}</title>
         <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
         <style>
