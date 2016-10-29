@@ -12,6 +12,99 @@
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
   <script src='javascripts/jquery.js'> </script>
-  <script type="text/javascript" src="/javascripts/costumes.js"> </script>
+  <script type="text/javascript" src="/javascripts/signup.js"> </script>
 
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Halloween project</title>
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <style>
+            body {
+                background: url(images/halloween4.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="column">
+                <!-- menu -->
+                <div class="ui menu">
+                    <div class="ui container">
+                        <div class="header item">
+                            HalloweenH8
+                        </div>
+                        <a href="costume.html" class="item">Home</a>
+                        <div class="right menu">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Signup -->
+                <div class="ui signup">
+                    <div class="column">
+                        <form class="ui form" method="post">
+                            <div class="ui stacked segment">
+                                <div class="ui grid">
+                                    <div class="twelve wide column">
+                                        <h3>Sign Up Now</h3>
+                                        <p>Fill in the form below to get a new account</p>
+                                    </div>
+                                    <div class="four wide column">
+                                        <i class="huge write icon"></i>
+                                    </div>
+                                </div>
+                                <div class="ui divider"></div>
+                                <div class="field">
+                                    <label>UserName</label>
+                                    <div class="field">
+                                        <input type="text" name="username" id="username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>E-mail Address</label>
+                                    <div class="field">
+                                        <input type="text" name="email" id="email" placeholder="E-mail">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Password</label>
+                                    <div class="field">
+                                        <input type="password" name="password" id="password">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Confirm Password</label>
+                                    <div class="field">
+                                        <input type="password" name="passwordConfirm" id="confirmPassword">
+                                    </div>
+                                </div>
+                                <div class="ui fluid x-large teal submit button" id="signupButton">Sign Up</div>
+                            </div>
+
+                            <!-- Error message-->
+                            <div class="ui error message"> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
+            <!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+            <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
+            <script type = "text/javascript" src='/javascripts/jquery.js'> </script>
+            <script type="text/javascript" src="/javascripts/signup.js"></script>
+            <script type="text/javascript" src="/javascripts/login.js"></script>
+
+    </body>
 </html>

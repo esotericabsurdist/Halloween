@@ -127,5 +127,7 @@
         <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
         <script type = "text/javascript" src='/javascripts/jquery.js'> </script>
         <script type="text/javascript" src="/javascripts/costumes.js"></script>
+        <script type="text/javascript" src="/javascripts/login.js"></script>
+
     </body>
 </html>

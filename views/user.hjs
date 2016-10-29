@@ -1,17 +1,125 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-  </head>
-  <body>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <style>
+            body {
+                background: url(images/halloween4.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+    </head>
 
-    <p> here is your user data </p>
+    <body>
+        <div class="container">
+            <div class="column">
+                <!-- menu -->
+                <div class="ui menu">
+                    <div class="ui container">
+                        <div class="header item">
+                            HalloweenH8
+                        </div>
+                        <a href="costume.html" class="item">Home</a>
+                        <div class="right menu">
 
-  </body>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- user account -->
+                <div class="ui segment">
+                    <!-- upload costume -->
+                    <div class="ui large accordion">
+                        <div class="title">
+                            <i class="dropdown icon"></i>
+                            Upload Costume
+                        </div>
+                        <div class="content">
+                            <form class="ui form upload">
+                                <div class="field">
+                                    <div class="ui green button">
+                                        <i class="plus icon"></i>
+                                        Add picture
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Title</label>
+                                    <input type="text" name="uploadTitle" placeholder="Title">
+                                </div>
+                                <div class="field">
+                                    <label>Description</label>
+                                    <input type="text" name="uploadDescription" placeholder="Description">
+                                </div>
+                                <button class="ui button" type="submit">Upload</button>
+                            </form>
+                        </div>
+                    </div>
 
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
-  <script src='javascripts/jquery.js'> </script>
-  <script type="text/javascript" src="/javascripts/user.js"> </script>
+                    <!-- costume list -->
+                    <div class="ui inverted segment costumeList">
+                        <h2 class="ui header">Costume List</h2>
+                        <div class="ui grid ">
+                            <div class="left floated ten wide column">
+                                <div class="ui segment">Title</div>
+                            </div>
+                            <div class="right floated four wide column">
+                                <div class="ui segment">Rate</div>
+                            </div>
+                        </div>
+                        <div class="ui grid ">
+                            <div class="left floated ten wide column">
+                                <div class="ui segment">Title</div>
+                            </div>
+                            <div class="right floated four wide column">
+                                <div class="ui segment">Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- footer -->
+            <div class="ui inverted vertical footer segment">
+                <div class="ui center aligned container">
+                    <div class="ui stackable inverted divided grid">
+                        <div class="six wide column">
+                            <h4 class="ui inverted header">Categories</h4>
+                            <div class="ui inverted link list">
+                                <a href="costume.html" class="item">Home</a>
+                                <a href="signup.html" class="item">Sign Up</a>
+                                <a href="user.html" class="item">User</a>
+                            </div>
+                        </div>
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">Team</h4>
+                            <div class="ui inverted link list">
+                                <div class="item">Member 1</div>
+                                <div class="item">Member 2</div>
+                                <div class="item">Member 3</div>
+                                <div class="item">Member 4</div>
+                                <div class="item">Member 5</div>
+                            </div>
+                        </div>
+                        <div class="seven wide column">
+                            <h4 class="ui inverted header">Header</h4>
+                            <p>Comments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
+        <!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+        <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
+        <script type = "text/javascript" src='/javascripts/jquery.js'> </script>
+        <script type="text/javascript" src="/javascripts/user.js"></script>
+        <script type="text/javascript" src="/javascripts/login.js"></script>
+
+    </body>
 </html>
