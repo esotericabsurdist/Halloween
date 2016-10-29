@@ -1,17 +1,131 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-  </head>
-  <body>
+    <head>
+        <title>{{ title }}</title>
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <style>
+            body {
+                background: url(images/halloween4.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+    </head>
 
-    <p> "Here are the cosutumes for you to rate" </p>
+    <body>
+        <div class="container">
+            <div class="column">
+                <!-- menu -->
+                <div class="ui menu">
+                    <div class="ui container">
+                        <div class="header item">
+                            HalloweenH8
+                        </div>
+                        <a href="costume.html" class="item home">Home</a>
+                        <div class="right menu">
 
-  </body>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Costume -->
+                <div class="ui card">
+                     <div class="content">
+                        <div class="header center aligned grid" id="costumeTitle">Title</div>
+                    </div>
+                    <div class="image">
+                            <img id="costumeImage" src="http://spirit.scene7.com/is/image/Spirit/Group_TV?$fullsize$">
+                        </div>
+                    <div class="content">
+                        <div class="header">Description</div>
+                        <div class="description" id="costumeDescription" >description</div>
+                    </div>
+                    <div class="extra aligned">
+                        <div class="right floated">Review</div>
+                        <div class="ui star rating" data-rating="3" data-max-rating="5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment-->
+                <div  class="ui comments">
+                    <div class="ui segment">
 
 
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
-  <script src='javascripts/jquery.js'> </script>
-  <script type="text/javascript" src="/javascripts/costumes.js"> </script>
+                        <div id="costumeComments">
 
+
+                          <div class="comment">
+                              <div class="content">
+                                  <a class="author">Joe Henderson</a>
+                                  <div class="metadata">
+                                      <div class="date">1 day ago</div>
+                                  </div>
+                                  <div class="text">
+                                      <p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. </p>
+                                      <p>Preserve until your next run, when the watch lets you see how Impermanent your efforts are.</p>
+                                  </div>
+                              </div>
+                          </div>
+
+
+                       </div>
+
+
+                        <form class="ui reply form">
+                            <div class="field">
+                                <textarea id="commentText"></textarea>
+                            </div>
+                            <div class="ui primary submit labeled icon button" id="submitCommmentButton">
+                                <i class="icon edit"></i> Add Comment
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!---------->
+
+
+            </div>
+
+            <!-- footer -->
+            <div class="ui inverted vertical footer segment">
+                <div class="ui center aligned container">
+                    <div class="ui stackable inverted divided grid">
+                        <div class="six wide column">
+                            <h4 class="ui inverted header">Categories</h4>
+                            <div class="ui inverted link list">
+                                <a href="costume.html" class="item">Home</a>
+                                <a href="signup.html" class="item">Sign Up</a>
+                                <a href="user.html" class="item">User</a>
+                            </div>
+                        </div>
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">Team</h4>
+                            <div class="ui inverted link list">
+                                <div class="item">Member 1</div>
+                                <div class="item">Member 2</div>
+                                <div class="item">Member 3</div>
+                                <div class="item">Member 4</div>
+                                <div class="item">Member 5</div>
+                            </div>
+                        </div>
+                        <div class="seven wide column">
+                            <h4 class="ui inverted header">Header</h4>
+                            <p>Comments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
+        <!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+        <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
+        <script type = "text/javascript" src='/javascripts/jquery.js'> </script>
+        <script type="text/javascript" src="/javascripts/costumes.js"></script>
+    </body>
 </html>
