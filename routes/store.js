@@ -1,3 +1,9 @@
+var mongoose = require('mongoose');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("Connected to Database");
+});
 /*
  *    This file is our store.
  *    It contains logic to handle all data access,
@@ -80,19 +86,11 @@ router.get('/retreivecostume', function(req, res, next){
     3. send the response with JSON containing the costume data, that is:
        res.json(costume);
   */
-
-
-var costume = {
-  imgPath : "/images/example.png",
-  imgName : "example.png",
-  comments : ["comment 1", "comment2", "comment3"],
-  description : "this is nice costume"
-}
-
-res.json(costume);
-
-
-})
+  costume.findOne({ 'title': 'Queen of Hearts' }, function (err, doc){
+    if (err) return handleError(err);
+    res.json(doc);
+  });
+});
 
 router.post('/updatecostume', function(req, res, next){
     /*TODO*/

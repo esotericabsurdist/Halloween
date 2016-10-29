@@ -2,17 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var costumeSchema = new Schema({
-  imagePath: String,
+  imgPath: String,
   title:  String,
   description: String,
   userName: String,
-  likes: Number,
-  dislikes: Number,
-  comments: [{user: String, message: String}]
+  rating: Number,
+  comments: [{ user:{type: String, default: 'anonymous'}, message: String}]
 });
 
-var costume = mongoose.model('Costume', costumeSchema);
+var costume = mongoose.model('costume', costumeSchema);
 
-//Do we really need this??
-//costumeSchame.set('autoIndex', false);
 module.exports = costume;

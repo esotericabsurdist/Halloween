@@ -10,9 +10,10 @@ $(document).ready(function() // wait for DOM to be ready
     //============================================================================
     $.get('/retreivecostume', function(costumeData){
       // dummy data
-      var costumePath = costumeData.costumePath;
-      var costumeTitle = costumeData.costumeTitle;
-      var costumeDescription = costumeData.costumeDescription;
+      console.log("Made it here");
+      var costumePath = costumeData.imgPath;
+      var costumeTitle = costumeData.title;
+      var costumeDescription = costumeData.description;
 
       document.getElementById('costumeImage').src = costumePath;
       document.getElementById('costumeDescription').innerHTML = costumeDescription;
