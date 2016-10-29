@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+
+    <p> here is your user data </p>
+
+  </body>
+
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
+  <script src='javascripts/jquery.js'> </script>
+  <script type="text/javascript" src="/javascripts/user.js"> </script>
+
+</html>
