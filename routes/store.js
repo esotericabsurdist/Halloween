@@ -94,6 +94,23 @@ router.get('/retreivecostume', function(req, res, next){
 
 router.post('/updatecostume', function(req, res, next){
     /*TODO*/
+    // Is is a comment or a rating??
+    var userMessage = JSON.parse(req.body.comment);
+    var userRating = JSON.parse(req.body.rating);
+    var costumeTitle = JSON.parse(req.body.costumeTitle);
+    if (comment != null) {
+      costume.findOne({ 'title': costumeTitle }, function (err, doc){
+        if (err) return handleError(err);
+        doc.update({comments.message[doc.comments.message.length +1]: userMessage});
+      res.json(doc);
+    }}
+    if (rating != null) {
+      costume.findOne({ 'title': costumeTitle }, function (err, doc){
+        if (err) return handleError(err);
+        doc.update({rating: doc.Totalrating + userRating}, {$inc: {numberRatings: 1}});
+    res.json(doc);
+    }}
+
     // update costume data in DB via costume id
 });
 
