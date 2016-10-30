@@ -34,14 +34,13 @@ $(document).ready(function() // wait for DOM to be ready
     submitCommmentButton.addEventListener('click', function() {
 
     var title = document.getElementById('costumeTitle').innerHTML;
-    var comment = document.getElementById('commentText').innerHTML;
+    var comment = $('#commentText').val();
 
     var postData = {
       rating: null,
-      message: commentText,
+      message: comment,
       costumeTitle: title
     }
-
     /*var costumeSchema = new Schema({
       imgPath: String,
       title:  String,
@@ -51,34 +50,23 @@ $(document).ready(function() // wait for DOM to be ready
       numberRatings: Number,
       comments: [{ user:{type: String, default: 'anonymous'}, message: String}]
     });*/
-
-
     $.ajax({
-      type: "POST",
-      url: "/updateCostume",
-      data: JSON.stringify(postData),
-      success: function(costumeData) {
+      url: '/updatecostume',
+      type: 'POST',
+      dataType: 'json',
+      data: JSON.stringify(postData);
+      success: function(err,costumeData) {
         // Now that we have returned, add the comment to the view.
-
+        if(err){
+          console.log(err);
+        }
         console.log("here is the response data: "+costumeData.title);
-        /*TODO read the array of comments and rewrite all of them as newest to oldest.*/
+        //TODO read the array of comments and rewrite all of them as newest to oldest.
 
         // remove current comments
         var comments = document.getElementById('comments');
         comments.empty();
-        /*
-        // append new comments
-        var costumeComments = costumeData.comments;
-
-        for(int i = costumeComments.length-1; i >= 0 ; i--){
-            comments.
-        }
-        */
-    });
-
-
-    }, false);
+      }}, false);
   //============================================================================
-
-  }
+  });
 });
