@@ -6,7 +6,8 @@ var costumeSchema = new Schema({
   title:  String,
   description: String,
   userName: String,
-  rating: Number,
+  totalRating: Number,
+  numberRatings: Number,
   comments: [{ user:{type: String, default: 'anonymous'}, message: String}]
 });
 
