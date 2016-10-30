@@ -26,11 +26,6 @@ var costume = require('../models/costumeschema.js');
 
 router.get('/', function(req, res, next) {
   // load costumes.hjs
-
-
-
-
-
   res.render('costumes', { title: 'Halloween R8' });
 });
 
@@ -72,46 +67,42 @@ router.get('/user', function(req, res, next) {
  */
 
 router.get('/retreivecostume', function(req, res, next){
-  /*
-    TODO
-    1. Grab a random costume from the data base.
-    2. Convert the costume's data to a Javascript Object, such as
-
-        var costume = {
-          imgPath = ...
-          name = ...
-          userName = ...
-          ...
-        }
-    3. send the response with JSON containing the costume data, that is:
-       res.json(costume);
-  */
+  //Find the right costume document and return it as doc
   costume.findOne({ 'title': 'Queen of Hearts' }, function (err, doc){
     if (err) return handleError(err);
     res.json(doc);
   });
 });
 
-router.post('/updatecostume', function(req, res, next){
-    /*TODO*/
-    // Is is a comment or a rating??
-    var userMessage = JSON.parse(req.body.comment);
-    var userRating = JSON.parse(req.body.rating);
-    var costumeTitle = JSON.parse(req.body.costumeTitle);
-    if (comment != null) {
-      costume.findOne({ 'title': costumeTitle }, function (err, doc){
-        if (err) return handleError(err);
-        doc.update({comments.message[doc.comments.message.length +1]: userMessage});
-      res.json(doc);
-    }}
-    if (rating != null) {
-      costume.findOne({ 'title': costumeTitle }, function (err, doc){
-        if (err) return handleError(err);
-        doc.update({rating: doc.Totalrating + userRating}, {$inc: {numberRatings: 1}});
-    res.json(doc);
-    }}
+router.post('/updatecostume', function(req, res){
+    // userMessage, userRating, and costumeTitle are passed as req
+    //query is made to make the update function easier
+    var jsonObject,
+        userMessage,
+        userRating,
+        costumeTitle;
 
-    // update costume data in DB via costume id
+    req.on('data',function(data){
+      jsonObject = JSON.parse(data);
+      userMessage = jsonObject.message;
+      userRating = jsonObject.rating;
+      costumeTitle = jsonObject.title;
+      console.log('made it to the function');
+
+      /*If there was a comment
+      if (userMessage != null) {
+        //Use query to find the right costume document and update the comments section
+        db.costumes.update({title:costumeTitle},{$push: {"comments":{"message":userMessage}}});
+        //return res.json(doc);
+      }
+      //If there was a rating
+      if (userRating != null) {
+        //Use query to find the right costume document and update the ratings
+        doc.update({title:costumeTitle},{rating: doc.Totalrating + userRating}, {$inc: {numberRatings: 1}});
+        //return res.json(doc);
+      }*/
+      return res.json({result:"WE MADE IT"});
+    });
 });
 
 router.post('/insertuser', function(req, res, next){
