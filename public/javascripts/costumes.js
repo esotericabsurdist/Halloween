@@ -11,9 +11,9 @@ $(document).ready(function() // wait for DOM to be ready
     /* TODO Change to $.ajax... */
     $.get('/retreivecostume', function(costumeData){
       // dummy data
-      var costumePath = costumeData.costumePath;
-      var costumeTitle = costumeData.costumeTitle;
-      var costumeDescription = costumeData.costumeDescription;
+      var costumePath = costumeData.imgPath;
+      var costumeTitle = costumeData.title;
+      var costumeDescription = costumeData.description;
 
       document.getElementById('costumeImage').src = costumePath;
       document.getElementById('costumeDescription').innerHTML = costumeDescription;
@@ -42,6 +42,16 @@ $(document).ready(function() // wait for DOM to be ready
       costumeTitle: title
     }
 
+    /*var costumeSchema = new Schema({
+      imgPath: String,
+      title:  String,
+      description: String,
+      userName: String,
+      totalRating: Number,
+      numberRatings: Number,
+      comments: [{ user:{type: String, default: 'anonymous'}, message: String}]
+    });*/
+
 
     $.ajax({
       type: "POST",
@@ -51,11 +61,24 @@ $(document).ready(function() // wait for DOM to be ready
         // Now that we have returned, add the comment to the view.
 
         console.log("here is the response data: "+costumeData.title);
-        /*TODO read the array of comments and rewrite all of them as newest to oldest.
+        /*TODO read the array of comments and rewrite all of them as newest to oldest.*/
+
+        // remove current comments
+        var comments = document.getElementById('comments');
+        comments.empty();
+        /*
+        // append new comments
+        var costumeComments = costumeData.comments;
+
+        for(int i = costumeComments.length-1; i >= 0 ; i--){
+            comments.
+        }
+        */
     });
 
 
     }, false);
   //============================================================================
 
+  }
 });
