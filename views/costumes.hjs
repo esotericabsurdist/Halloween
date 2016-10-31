@@ -4,6 +4,9 @@
         <title>{{ title }}</title>
         <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <link rel="stylesheet" href="jquery-bar-rating/dist/themes/fontawesome-stars-o.css">
+        <style>
         <style>
             body {
                 background: url(images/halloween4.jpg) no-repeat center center fixed;
@@ -120,6 +123,6 @@
         <script type = "text/javascript" src='/javascripts/jquery.js'> </script>
         <script type="text/javascript" src="/javascripts/costumes.js"></script>
         <script type="text/javascript" src="/javascripts/login.js"></script>
-
+		<script src="jquery-bar-rating/dist/jquery.barrating.min.js"></script>
     </body>
 </html>
