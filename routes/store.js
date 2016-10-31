@@ -68,41 +68,80 @@ router.get('/user', function(req, res, next) {
 
 router.get('/retreivecostume', function(req, res, next){
   //Find the right costume document and return it as doc
+
+  // TODO Get random costume.
+
   costume.findOne({ 'title': 'Queen of Hearts' }, function (err, doc){
     if (err) return handleError(err);
     res.json(doc);
   });
 });
 
+
 router.post('/updatecostume', function(req, res){
-    // userMessage, userRating, and costumeTitle are passed as req
+
     //query is made to make the update function easier
-    var jsonObject,
-        userMessage,
-        userRating,
-        costumeTitle;
+    var jsonObject, userMessage, userRating, costumeTitle;
 
-    req.on('data',function(data){
-      jsonObject = JSON.parse(data);
-      userMessage = jsonObject.message;
-      userRating = jsonObject.rating;
-      costumeTitle = jsonObject.title;
-      console.log('made it to the function');
+    // JSON.parse not working. Can't pass JSON.stringify for some reason from costumes.js.
+    userMessage = req.body.message;
+    userRating = req.body.rating;
+    costumeTitle = req.body.title;
 
-      /*If there was a comment
-      if (userMessage != null) {
-        //Use query to find the right costume document and update the comments section
-        db.costumes.update({title:costumeTitle},{$push: {"comments":{"message":userMessage}}});
-        //return res.json(doc);
-      }
-      //If there was a rating
-      if (userRating != null) {
-        //Use query to find the right costume document and update the ratings
-        doc.update({title:costumeTitle},{rating: doc.Totalrating + userRating}, {$inc: {numberRatings: 1}});
-        //return res.json(doc);
-      }*/
-      return res.json({result:"WE MADE IT"});
-    });
+    // If there was a comment
+    if (userMessage != null) {
+      //Use query to find the right costume document and update the comments section
+      //db.costumes.update({'title':costumeTitle},{$push: {'comments':{"message":userMessage}}});
+      //console.log("Db is updated maybe");
+      // return the appropriate costume for updated comments.
+
+
+      costume.findOne({ 'title': costumeTitle }, function (err, doc){
+        if (err) return handleError(err);
+
+        // get array current comments.
+        var comments = new Array();
+        comments = doc.comments;
+        console.log(comments);
+        // add new comment to array of comments.
+        comments.push({'user':'anonymous', 'message': userMessage}); // this line adds _id: documentID to the new comment for some reason.
+
+        // trying this mongoose function because mongDB functions don't save.
+        //costume.findOneAndUpdate({'title': costumeTitle}, {'comments': comments}); // this doesn't save either. 
+        console.log(comments);
+        // update the old comments array with the new comments array.
+        costume.update({ 'title': costumeTitle}, {$set: {'comments': comments}});
+
+
+        // verify the new comment data is set. Ths prints new data, but it is lost.
+        console.log(doc);
+
+        res.end(JSON.stringify(doc));
+      });
+    }
+
+    //If there was a rating
+    if (userRating != null) {/*
+      costume.findOne({ 'title': costumeTitle }, function (err, doc){
+        if (err) return handleError(err);
+
+        //totalRating: Number,
+        //numberRatings: Number,
+
+        // create updated values.
+        var totalRatings = doc.totalRating + userRating;
+        var numberRatings = doc.numberRatings + 1;
+
+        // update DB with new vales.
+        costume.update({ 'title': costumeTitle}, {$set: {'totalRating': totalRating}});
+        costume.update({ 'title': costumeTitle}, {$set: {'numberRatings': numberRatings}});
+
+        // verify the new rating data is set.
+        console.log(doc);
+
+        res.json(doc);
+      });*/
+    }
 });
 
 router.post('/insertuser', function(req, res, next){
@@ -129,42 +168,3 @@ router.post('/logout', function(req, res, next){
 //==============================================================================
 module.exports = router;
 //==============================================================================
-
-
-
-
-
-
-
-
-
-/*    Old code, don't delete.
-//Get random image
-//===========================
-var filesystem = require("fs");
-
-// folder with our images.
-dir = './public/images';
-
-// JSON data to return
-//var images = new Array();
-var images = {
-    imagesJSON: []
-};
-
-// loop through all the images, building an array of image objects containing file path and name.
-filesystem.readdirSync(dir).forEach(function(file) {
-
-  // get full path.
-  var path = 'images/'+file;
-
-  // built object.
-  var image = {
-    imgPath: path,
-    imgFile: file
-  }
-  images.imagesJSON.push(image);
-});
-// send the json as a response.
-res.json(images);
-*/
